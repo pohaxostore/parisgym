@@ -5,20 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WolfMode - Home Page</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #222;
-            color: #fff;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
         }
         header {
-            background-color: #333;
-            padding: 20px;
+            background-color: #222;
+            color: white;
+            padding: 30px 0;
             text-align: center;
         }
         header img {
-            width: 150px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 24px;
+            font-weight: bold;
         }
         nav {
             width: 250px;
@@ -26,60 +35,75 @@
             top: 0;
             left: 0;
             height: 100%;
-            background-color: #111;
-            padding-top: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            background-color: #333;
+            padding-top: 30px;
+            transition: all 0.3s ease;
         }
         nav a {
             display: block;
-            color: #fff;
-            padding: 15px;
+            color: white;
             text-decoration: none;
+            padding: 15px;
             font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             border-bottom: 1px solid #444;
+            transition: background-color 0.3s ease;
         }
         nav a:hover {
-            background-color: #444;
+            background-color: #f39c12;
         }
         .main-content {
             margin-left: 250px;
-            padding: 20px;
+            padding: 30px;
         }
         .hero {
             background-image: url('https://via.placeholder.com/1500x600');
             background-size: cover;
-            height: 60vh;
+            background-position: center;
+            height: 500px;
             color: white;
-            text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
         .hero h2 {
-            font-size: 3rem;
+            font-size: 50px;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
         }
-        .section-title {
-            font-size: 2rem;
-            margin-top: 40px;
-        }
-        .content {
-            padding: 30px 0;
+        .content-section {
+            margin-top: 50px;
             text-align: center;
+        }
+        .content-section h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .content-section p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 40px;
         }
         footer {
-            background-color: #333;
-            padding: 20px;
-            text-align: center;
+            background-color: #222;
             color: #aaa;
-            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="https://via.placeholder.com/150x50?text=WOLFMODE" alt="WolfMode Logo">
+        <img src="https://via.placeholder.com/200x50?text=WOLFMODE" alt="WolfMode Logo">
         <p>Strength in Silence</p>
     </header>
 
@@ -94,19 +118,19 @@
             <h2>Discover the power within every step with WolfMode</h2>
         </section>
 
-        <section id="about" class="content">
-            <h2 class="section-title">About Us</h2>
-            <p>We are a brand that aims to offer innovative, high-quality products that inspire individuals to reach their fullest potential.</p>
+        <section id="about" class="content-section">
+            <h2>About Us</h2>
+            <p>We are a brand focused on delivering innovative and high-quality products that inspire individuals to reach their fullest potential in life. Our vision is to help you achieve excellence through strength in silence.</p>
         </section>
 
-        <section id="clothing" class="content">
-            <h2 class="section-title">Our Clothing</h2>
-            <p>We offer a range of clothing that blends performance and style. Experience comfort and fashion in every step.</p>
+        <section id="clothing" class="content-section">
+            <h2>Our Clothing</h2>
+            <p>Our clothing combines performance, comfort, and style. Each piece is designed with care to make you feel empowered while achieving your goals. Fashion with purpose, designed for every step of your journey.</p>
         </section>
 
-        <section id="method" class="content">
-            <h2 class="section-title">WolfMode Method</h2>
-            <p>Our method focuses on inner strength. We believe that excellence comes from quiet, consistent effort, achieving goals with peace and power.</p>
+        <section id="method" class="content-section">
+            <h2>WolfMode Method</h2>
+            <p>Our method is about embracing inner strength. We believe excellence is achieved through quiet, consistent effort. WolfMode is not just a brand—it's a lifestyle that empowers you to achieve success with calm and unwavering strength.</p>
         </section>
     </div>
 
