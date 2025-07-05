@@ -29,34 +29,47 @@
             font-size: 24px;
             font-weight: bold;
         }
+        /* The sidebar */
         nav {
-            width: 250px;
+            height: 100%;
+            width: 0;
             position: fixed;
             top: 0;
             left: 0;
-            height: 100%;
             background-color: #222;
-            padding-top: 30px;
-            transition: all 0.3s ease;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
         }
         nav a {
-            display: block;
-            color: white;
+            padding: 8px 8px 8px 32px;
             text-decoration: none;
-            padding: 15px;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid #444;
-            transition: background-color 0.3s ease;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
         }
         nav a:hover {
             background-color: #f39c12;
         }
+        /* Toggle button */
+        #menuToggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
         .main-content {
-            margin-left: 250px;
+            margin-left: 0;
+            transition: margin-left 0.5s;
             padding: 30px;
         }
+
         .hero {
             background-image: url('https://via.placeholder.com/1500x600');
             background-size: cover;
@@ -103,17 +116,21 @@
 <body>
 
     <header>
-        <!-- Replace with actual logo path -->
-        <img src="images/Wolfmode.jpg" alt="WolfMode Logo">
+        <img src="https://via.placeholder.com/200x50?text=WOLFMODE" alt="WolfMode Logo">
         <p>Strength in Silence</p>
     </header>
 
-    <nav>
+    <!-- Sidebar (hidden by default) -->
+    <nav id="sidebar">
         <a href="#about">About Us</a>
         <a href="#clothing">Our Clothing</a>
         <a href="#method">WolfMode Method</a>
     </nav>
 
+    <!-- Menu Toggle Button -->
+    <button id="menuToggle">&#9776; Menu</button>
+
+    <!-- Main content -->
     <div class="main-content">
         <section class="hero">
             <h2>Discover the power within every step with WolfMode</h2>
@@ -124,7 +141,7 @@
             <p>We are a brand focused on delivering innovative and high-quality products that inspire individuals to reach their fullest potential in life. Our vision is to help you achieve excellence through strength in silence.</p>
         </section>
 
-        <section id="clothing" class="content-section">
+        section id="clothing" class="content-section">
             <h2>Our Clothing</h2>
             <p>Our clothing combines performance, comfort, and style. Each piece is designed with care to make you feel empowered while achieving your goals. Fashion with purpose, designed for every step of your journey.</p>
         </section>
@@ -138,6 +155,20 @@
     <footer>
         <p>&copy; 2025 WolfMode. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Toggle sidebar visibility
+        document.getElementById("menuToggle").onclick = function() {
+            var sidebar = document.getElementById("sidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+                document.querySelector(".main-content").style.marginLeft = "0";
+            } else {
+                sidebar.style.width = "250px";
+                document.querySelector(".main-content").style.marginLeft = "250px";
+            }
+        }
+    </script>
 
 </body>
 </html>
