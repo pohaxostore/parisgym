@@ -17,51 +17,87 @@
             text-align: center;
         }
         header {
-            padding: 20px;
+            padding: 30px;
             background-color: #333;
         }
         header img {
             width: 200px;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
+        .hero-text {
+            font-size: 40px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+            color: #f39c12; /* Golden text */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* The menu */
+        #menuToggle {
+            font-size: 30px;
+            color: #fff;
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+        }
+
+        nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #222;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        nav a {
+            padding: 10px 10px 10px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background-color: #f39c12;
+        }
+        .main-content {
+            padding: 30px;
+        }
+
         .intro-text {
             font-size: 22px;
             line-height: 1.8;
-            margin: 40px auto;
+            margin-top: 40px;
             width: 80%;
             max-width: 800px;
-            color: #f39c12; /* Golden color */
+            color: #fff;
+            margin: 40px auto;
         }
+
         .contact-info {
             margin-top: 50px;
             font-size: 18px;
             color: #fff;
         }
         .contact-info a {
-            color: #f39c12; /* Golden color */
+            color: #f39c12;
             text-decoration: none;
             font-weight: bold;
         }
+
         footer {
             background-color: #333;
             color: #aaa;
             padding: 20px 0;
             margin-top: 50px;
         }
-        .footer-text {
-            font-size: 16px;
-        }
-        .golden-text {
-            color: #f39c12; /* Golden color */
-        }
-        /* Animation and effects */
-        .hero-text {
-            font-size: 50px;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
-            color: #f39c12; /* Golden text */
-            animation: fadeIn 2s ease-in-out;
-        }
 
+        /* Animation and effects */
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -70,6 +106,16 @@
 </head>
 <body>
 
+    <!-- Menu Toggle Button -->
+    <button id="menuToggle">&#9776; Menu</button>
+
+    <!-- Sidebar (hidden by default) -->
+    <nav id="sidebar">
+        <a href="#about">Our Brand</a>
+        <a href="#method">WolfMode Method</a>
+        <a href="#supplements">Supplements</a>
+    </nav>
+
     <!-- Hero Section with Logo -->
     <header>
         <img src="images/Wolfmode.jpg" alt="WolfMode Logo">
@@ -77,11 +123,23 @@
     </header>
 
     <!-- Introduction Section -->
-    <section class="intro-text">
+    <section class="intro-text" id="about">
         <p>At WolfMode, we believe in the quiet power of the wolf. We are a brand that represents strength, endurance, and the relentless pursuit of excellence. Our journey began with a passion for achieving the highest standards in fitness and lifestyle. Today, WolfMode stands as a symbol of those who strive for greatness in silence.</p>
         <p>Our goal is to inspire individuals around the world to unlock their full potential through dedication and discipline. WolfMode is not just a brand; it’s a mindset. The wolf symbolizes courage, independence, and wisdom, and we aim to instill these values in every product we create.</p>
         <p>Whether you’re a fitness enthusiast or someone looking to make a bold statement in life, WolfMode provides you with the gear that complements your journey. Our clothing combines performance, style, and quality, empowering you to achieve success with confidence and resilience.</p>
         <p>Join the WolfMode family and experience the power within. Become part of a movement that embodies the spirit of the wolf.</p>
+    </section>
+
+    <!-- WolfMode Method Section -->
+    <section class="intro-text" id="method">
+        <h2>WolfMode Method</h2>
+        <p>Our method is about embracing inner strength. We believe excellence is achieved through quiet, consistent effort. WolfMode is not just a brand—it's a lifestyle that empowers you to achieve success with calm and unwavering strength.</p>
+    </section>
+
+    <!-- Supplements Section -->
+    <section class="intro-text" id="supplements">
+        <h2>Supplements</h2>
+        <p>WolfMode offers a range of premium supplements designed to fuel your body and mind. Whether you're training for a competition or simply looking to stay healthy, our supplements provide the essential nutrients needed for peak performance.</p>
     </section>
 
     <!-- Contact Information Section -->
@@ -92,8 +150,20 @@
 
     <!-- Footer Section -->
     <footer>
-        <p class="footer-text">© 2025 WolfMode. All rights reserved.</p>
+        <p>&copy; 2025 WolfMode. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Toggle sidebar visibility
+        document.getElementById("menuToggle").onclick = function() {
+            var sidebar = document.getElementById("sidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+            }
+        }
+    </script>
 
 </body>
 </html>
