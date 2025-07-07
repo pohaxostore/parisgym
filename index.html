@@ -6,34 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <style>
-    .product-main {
-      text-align: center;
-    }
-    .product-main img {
-      width: 300px;
-      max-width: 100%;
-      border-radius: 10px;
-    }
     .color-options {
-      margin-top: 1em;
+      margin-top: 10px;
     }
-    .color-btn {
-      display: inline-block;
+    .color-circle {
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      margin: 0 5px;
-      border: 2px solid #fff;
+      display: inline-block;
+      margin: 5px;
       cursor: pointer;
+      border: 2px solid #fff;
+      transition: transform 0.2s;
     }
-    .color-btn:hover {
-      border-color: #e63946;
+    .color-circle:hover {
+      transform: scale(1.1);
+      border: 2px solid #e63946;
     }
     .price {
-      font-size: 1.2em;
-      margin: 0.5em 0;
-      color: #e63946;
       font-weight: bold;
+      color: #e63946;
+      margin: 0.5em 0;
     }
   </style>
 </head>
@@ -47,22 +40,51 @@
     </div>
   </header>
 
+  <section id="about">
+    <div class="container">
+      <h2>About WolfMode</h2>
+      <p>Premium gym apparel built for real warriors. Your power starts with what you wear.</p>
+    </div>
+  </section>
+
   <section id="shop">
     <div class="container">
       <h2>Our Products</h2>
-      <div class="product-main">
-        <img id="mainImage" src="images/shirt-black-front.png" alt="WolfMode Shirt">
-        <img id="backImage" src="images/shirt-black-back.png" alt="Back View" style="margin-top:10px;">
-        <p class="price" id="price">$24.99</p>
-        <a id="buyLink" href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode" target="_blank" class="btn">Buy Now</a>
 
+      <!-- Premium T-Shirt -->
+      <div class="product">
+        <h3>Premium T-Shirt</h3>
+        <img id="mainImage" src="images/shirt-black-front.png" alt="Premium Black T-Shirt">
+        <p class="price">$25.50</p>
+        <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode" class="btn" target="_blank">Buy Now</a>
         <div class="color-options">
-          <div class="color-btn" style="background:black" onclick="changeColor('black')"></div>
-          <div class="color-btn" style="background:#800000" onclick="changeColor('red')"></div>
-          <div class="color-btn" style="background:#006400" onclick="changeColor('blue')"></div>
-          <div class="color-btn" style="background:#000080" onclick="changeColor('navy')"></div>
-          <div class="color-btn" style="background:pink" onclick="changeColor('pink')"></div>
+          <span class="color-circle" style="background:black" onclick="changeImage('images/shirt-black-front.png')"></span>
+          <span class="color-circle" style="background:#4169e1" onclick="changeImage('images/shirt-DeepRoyal-front.png')"></span>
+          <span class="color-circle" style="background:#000080" onclick="changeImage('images/shirt-navy-front.png')"></span>
+          <span class="color-circle" style="background:pink" onclick="changeImage('images/shirt-pink-front.png')"></span>
         </div>
+      </div>
+
+      <!-- Basic T-Shirt -->
+      <div class="product">
+        <h3>Basic T-Shirt</h3>
+        <img id="basicImage" src="images/shirt-basic-black.png" alt="Basic Black T-Shirt">
+        <p class="price">$23.50</p>
+        <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode?product=2" class="btn" target="_blank">Buy Now</a>
+        <div class="color-options">
+          <span class="color-circle" style="background:black" onclick="changeBasicImage('images/shirt-basic-black.png')"></span>
+          <span class="color-circle" style="background:#4169e1" onclick="changeBasicImage('images/shirt-basic-DeepRoyal.png')"></span>
+          <span class="color-circle" style="background:#000080" onclick="changeBasicImage('images/shirt-basic-navy.png')"></span>
+          <span class="color-circle" style="background:pink" onclick="changeBasicImage('images/shirt-basic-pink.png')"></span>
+        </div>
+      </div>
+
+      <!-- Mug -->
+      <div class="product">
+        <h3>WolfMode Mug</h3>
+        <img src="images/mug.png" alt="WolfMode Mug">
+        <p class="price">$15.99</p>
+        <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode?product=1565" class="btn" target="_blank">Buy Now</a>
       </div>
     </div>
   </section>
@@ -89,40 +111,13 @@
   </footer>
 
   <script>
-    const images = {
-      black: {
-        front: "images/shirt-black-front.png",
-        back: "images/shirt-black-back.png",
-        price: "$24.99"
-      },
-      red: {
-        front: "images/shirt-DeepRoyal-front.png",
-        back: "images/shirt-DeepRoyal-back.png",
-        price: "$26.99"
-      },
-      blue: {
-        front: "images/shirt-DeepForest-front.png",
-        back: "images/shirt-DeepForest-back.png",
-        price: "$25.99"
-      },
-      navy: {
-        front: "images/shirt-navy-front.png",
-        back: "images/shirt-navy-back.png",
-        price: "$25.99"
-      },
-      pink: {
-        front: "images/shirt-pink-front.png",
-        back: "images/shirt-pink-back.png",
-        price: "$26.99"
-      }
-    };
-
-    function changeColor(color) {
-      document.getElementById("mainImage").src = images[color].front;
-      document.getElementById("backImage").src = images[color].back;
-      document.getElementById("price").textContent = images[color].price;
+    function changeImage(imgSrc) {
+      document.getElementById('mainImage').src = imgSrc;
+    }
+    function changeBasicImage(imgSrc) {
+      document.getElementById('basicImage').src = imgSrc;
     }
   </script>
 
 </body>
-          </html>
+</html>
