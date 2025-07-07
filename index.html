@@ -28,6 +28,12 @@
       color: #e63946;
       margin: 0.5em 0;
     }
+    .product img {
+      width: 300px;
+      max-width: 100%;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -54,28 +60,31 @@
       <!-- Premium T-Shirt -->
       <div class="product">
         <h3>Premium T-Shirt</h3>
-        <img id="mainImage" src="images/shirt-black-front.png" alt="Premium Black T-Shirt">
-        <p class="price">$25.50</p>
+        <img id="mainImage" src="images/shirt-black-front.png" alt="Premium Black Front">
+        <img id="mainBack" src="images/shirt-black-back.png" alt="Premium Black Back">
+        <p class="price" id="mainPrice">$25.50</p>
         <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode" class="btn" target="_blank">Buy Now</a>
         <div class="color-options">
-          <span class="color-circle" style="background:black" onclick="changeImage('images/shirt-black-front.png')"></span>
-          <span class="color-circle" style="background:#4169e1" onclick="changeImage('images/shirt-DeepRoyal-front.png')"></span>
-          <span class="color-circle" style="background:#000080" onclick="changeImage('images/shirt-navy-front.png')"></span>
-          <span class="color-circle" style="background:pink" onclick="changeImage('images/shirt-pink-front.png')"></span>
+          <span class="color-circle" style="background:black" onclick="changeMainTee('black')"></span>
+          <span class="color-circle" style="background:#4169e1" onclick="changeMainTee('deeproyal')"></span>
+          <span class="color-circle" style="background:#000080" onclick="changeMainTee('navy')"></span>
+          <span class="color-circle" style="background:pink" onclick="changeMainTee('pink')"></span>
+          <span class="color-circle" style="background:#006400" onclick="changeMainTee('forest')"></span>
         </div>
       </div>
 
       <!-- Basic T-Shirt -->
       <div class="product">
         <h3>Basic T-Shirt</h3>
-        <img id="basicImage" src="images/shirt-basic-black.png" alt="Basic Black T-Shirt">
+        <img id="basicFront" src="images/shirt-basic-black-front.png" alt="Basic Front">
+        <img id="basicBack" src="images/shirt-basic-black-back.png" alt="Basic Back">
         <p class="price">$23.50</p>
         <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode?product=2" class="btn" target="_blank">Buy Now</a>
         <div class="color-options">
-          <span class="color-circle" style="background:black" onclick="changeBasicImage('images/shirt-basic-black.png')"></span>
-          <span class="color-circle" style="background:#4169e1" onclick="changeBasicImage('images/shirt-basic-DeepRoyal.png')"></span>
-          <span class="color-circle" style="background:#000080" onclick="changeBasicImage('images/shirt-basic-navy.png')"></span>
-          <span class="color-circle" style="background:pink" onclick="changeBasicImage('images/shirt-basic-pink.png')"></span>
+          <span class="color-circle" style="background:black" onclick="changeBasicTee('black')"></span>
+          <span class="color-circle" style="background:#4169e1" onclick="changeBasicTee('deeproyal')"></span>
+          <span class="color-circle" style="background:#000080" onclick="changeBasicTee('navy')"></span>
+          <span class="color-circle" style="background:pink" onclick="changeBasicTee('pink')"></span>
         </div>
       </div>
 
@@ -111,11 +120,30 @@
   </footer>
 
   <script>
-    function changeImage(imgSrc) {
-      document.getElementById('mainImage').src = imgSrc;
+    const premiumTee = {
+      black:   ["images/shirt-black-front.png", "images/shirt-black-back.png", "$25.50"],
+      deeproyal: ["images/shirt-DeepRoyal-front.png", "images/shirt-DeepRoyal-back.png", "$25.50"],
+      navy:    ["images/shirt-navy-front.png", "images/shirt-navy-back.png", "$25.50"],
+      pink:    ["images/shirt-pink-front.png", "images/shirt-pink-back.png", "$25.50"],
+      forest:  ["images/shirt-DeepForest-front.png", "images/shirt-DeepForest-back.png", "$25.50"]
+    };
+
+    const basicTee = {
+      black:   ["images/shirt-basic-black-front.png", "images/shirt-basic-black-back.png"],
+      deeproyal: ["images/shirt-basic-DeepRoyal-front.png", "images/shirt-basic-DeepRoyal-back.png"],
+      navy:    ["images/shirt-basic-navy-front.png", "images/shirt-basic-navy-back.png"],
+      pink:    ["images/shirt-basic-pink-front.png", "images/shirt-basic-pink-back.png"]
+    };
+
+    function changeMainTee(color) {
+      document.getElementById('mainImage').src = premiumTee[color][0];
+      document.getElementById('mainBack').src = premiumTee[color][1];
+      document.getElementById('mainPrice').textContent = premiumTee[color][2];
     }
-    function changeBasicImage(imgSrc) {
-      document.getElementById('basicImage').src = imgSrc;
+
+    function changeBasicTee(color) {
+      document.getElementById('basicFront').src = basicTee[color][0];
+      document.getElementById('basicBack').src = basicTee[color][1];
     }
   </script>
 
