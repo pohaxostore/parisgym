@@ -1,97 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>WolfMode Gym Wear</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>WolfMode Gym Wear</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .product-main {
+      text-align: center;
+    }
+    .product-main img {
+      width: 300px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .color-options {
+      margin-top: 1em;
+    }
+    .color-btn {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin: 0 5px;
+      border: 2px solid #fff;
+      cursor: pointer;
+    }
+    .color-btn:hover {
+      border-color: #e63946;
+    }
+    .price {
+      font-size: 1.2em;
+      margin: 0.5em 0;
+      color: #e63946;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <h1>🐺 WolfMode</h1>
-      <p>Unleash the beast within</p>
-      <a href="#shop" class="btn">Shop Now</a>
-    </div>
-  </header>
+  <header>
+    <div class="container">
+      <h1>🐺 WolfMode</h1>
+      <p>Unleash the beast within</p>
+      <a href="#shop" class="btn">Shop Now</a>
+    </div>
+  </header>
 
-  <section id="about">
-    <div class="container">
-      <h2>About WolfMode</h2>
-      <p>Premium gym apparel built for real warriors. Your power starts with what you wear.</p>
-    </div>
-  </section>
+  <section id="shop">
+    <div class="container">
+      <h2>Our Products</h2>
+      <div class="product-main">
+        <img id="mainImage" src="images/shirt-black-front.png" alt="WolfMode Shirt">
+        <img id="backImage" src="images/shirt-black-back.png" alt="Back View" style="margin-top:10px;">
+        <p class="price" id="price">$24.99</p>
+        <a id="buyLink" href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode" target="_blank" class="btn">Buy Now</a>
 
-  <section id="shop">
-    <div class="container">
-      <h2>Our Products</h2>
-      <div class="product-variants">
+        <div class="color-options">
+          <div class="color-btn" style="background:black" onclick="changeColor('black')"></div>
+          <div class="color-btn" style="background:#800000" onclick="changeColor('red')"></div>
+          <div class="color-btn" style="background:#006400" onclick="changeColor('blue')"></div>
+          <div class="color-btn" style="background:#000080" onclick="changeColor('navy')"></div>
+          <div class="color-btn" style="background:pink" onclick="changeColor('pink')"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Black -->
-        <div class="variant">
-          <img src="images/shirt-black-front.png" alt="Black Front">
-          <img src="images/shirt-black-back.png" alt="Black Back">
-          <p>Black</p>
-          <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode" class="btn" target="_blank">Buy Now</a>
-        </div>
+  <section id="method">
+    <div class="container">
+      <h2>WolfMode Method</h2>
+      <p>A digital program for full transformation: training, nutrition, and mental discipline.</p>
+      <p>📘 Coming Soon – Be the first to access it!</p>
+      <a href="#contact" class="btn-outline">Get Notified</a>
+    </div>
+  </section>
 
-        <!-- Red -->
-        <div class="variant">
-          <img src="images/shirt-DeepRoyal-front.png" alt="Deep Royal Front">
-          <img src="images/shirt-DeepRoyal-back.png" alt="Deep Royal Back">
-          <p>Red</p>
-          <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode" class="btn" target="_blank">Buy Now</a>
-        </div>
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Have questions or want to collaborate?</p>
+      <a href="mailto:10crimson.blade01@gmail.com" class="btn">Email Us</a>
+    </div>
+  </section>
 
-        <!-- Blue -->
-        <div class="variant">
-          <img src="images/shirt-DeepForest-front.png" alt="Deep Forest Front">
-          <img src="images/shirt-DeepForest-back.png" alt="Deep Forest Back">
-          <p>Blue</p>
-          <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode" class="btn" target="_blank">Buy Now</a>
-        </div>
+  <footer>
+    <p>&copy; 2025 WolfMode. All rights reserved.</p>
+  </footer>
 
-        <!-- Navy -->
-        <div class="variant">
-          <img src="images/shirt-navy-front.png" alt="Navy Front">
-          <img src="images/shirt-navy-back.png" alt="Navy Back">
-          <p>Navy</p>
-          <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode" class="btn" target="_blank">Buy Now</a>
-        </div>
+  <script>
+    const images = {
+      black: {
+        front: "images/shirt-black-front.png",
+        back: "images/shirt-black-back.png",
+        price: "$24.99"
+      },
+      red: {
+        front: "images/shirt-DeepRoyal-front.png",
+        back: "images/shirt-DeepRoyal-back.png",
+        price: "$26.99"
+      },
+      blue: {
+        front: "images/shirt-DeepForest-front.png",
+        back: "images/shirt-DeepForest-back.png",
+        price: "$25.99"
+      },
+      navy: {
+        front: "images/shirt-navy-front.png",
+        back: "images/shirt-navy-back.png",
+        price: "$25.99"
+      },
+      pink: {
+        front: "images/shirt-pink-front.png",
+        back: "images/shirt-pink-back.png",
+        price: "$26.99"
+      }
+    };
 
-        <!-- Pink -->
-        <div class="variant">
-          <img src="images/shirt-pink-front.png" alt="Pink Front">
-          <img src="images/shirt-pink-back.png" alt="Pink Back">
-          <p>Pink</p>
-          <a href="https://my-store-10a1d8a.creator-spring.com/listing/new-wolfmode" class="btn" target="_blank">Buy Now</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="method">
-    <div class="container">
-      <h2>WolfMode Method</h2>
-      <p>A digital program for full transformation: training, nutrition, and mental discipline.</p>
-      <p>📘 Coming Soon – Be the first to access it!</p>
-      <a href="#contact" class="btn-outline">Get Notified</a>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <p>Have questions or want to collaborate?</p>
-      <a href="10crimson.blade01@gmail.com" class="btn">Email Us</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 WolfMode. All rights reserved.</p>
-  </footer>
+    function changeColor(color) {
+      document.getElementById("mainImage").src = images[color].front;
+      document.getElementById("backImage").src = images[color].back;
+      document.getElementById("price").textContent = images[color].price;
+    }
+  </script>
 
 </body>
-</html>
+          </html>
